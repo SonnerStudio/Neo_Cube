@@ -1,0 +1,96 @@
+MAGIC:SSPLX95|VERSION:1.0.0|PLATTFORM:windows-x64|KOMPILIERER:SSPL v9.5.0
+NAME:neo_cube.sspl|HERSTELLER:SonnerStudio|VERSION:1.0.0
+// Neo-Cube Emulator - Phase 1 MVP Core
+paket neo_cube;
+
+importiere sspl.kern;
+importiere sspl.vrf;
+importiere sspl.ereignis; // Event-Bus
+importiere neo_cube.gpu;
+importiere neo_cube.audio;
+importiere neo_cube.flippy;
+importiere neo_cube.core;
+importiere neo_cube.os;
+
+// Component-Based Architecture (CBA) Komponenten
+
+komponente GekkoCPU {
+    funktion starte() {
+        sspl.konsole.schreibe("[GekkoCPU] Prozessor-Interpreter gestartet.");
+    }
+}
+
+komponente MMU {
+    var ram_basis_zeiger: zeiger;
+
+    funktion initialisiere() {
+        sspl.konsole.schreibe("[MMU] Speichermanagement (RAM/ARAM) initialisiert.");
+        // Dummy Zeiger für Phase 3
+        diese.ram_basis_zeiger = 0x80000000; 
+    }
+}
+
+funktion haupt() {
+    sspl.konsole.schreibe("===================================");
+    sspl.konsole.schreibe("Neo-Cube Emulator - MVP Initialisierung");
+    sspl.konsole.schreibe("===================================");
+    
+    // VRF Bridge (C++ Engine) für Performance-kritische Routinen
+    vrf.starte_bridge();
+    
+    // Komponenten instanziieren
+    var cpu = neu GekkoCPU();
+    var mmu = neu MMU();
+    var gpu = neu neo_cube.gpu.FlipperGPU();
+    var dsp = neu neo_cube.audio.MacaronDSP();
+    var sd_card = neu neo_cube.flippy.SDCardPassthrough();
+    var dvd = neu neo_cube.flippy.DVDInterface();
+    var patcher = neu neo_cube.flippy.CubeBootPatcher();
+    var ethernet = neu neo_cube.flippy.EthernetAddon();
+    var flippy_os = neu neo_cube.flippy.FlippyOS();
+    
+    // Phase 4 Komponenten
+    var jit = neu neo_cube.core.JITCompiler();
+    var powermode = neu neo_cube.core.Powermode();
+    
+    // Phase 6 & 8 Komponenten (UI)
+    var os_ui = neu neo_cube.os.OSBridge();
+    var xmb = neu neo_cube.os.NeoCubeXMB();
+    
+    // Phase 7 Komponenten (Multiplayer/Voice)
+    var ncl = neu neo_cube.os.NeoCubeLive();
+    
+    // Komponenten initialisieren und starten
+    mmu.initialisiere();
+    gpu.initialisiere();
+    dsp.initialisiere();
+    jit.initialisiere();
+    powermode.initialisiere();
+    os_ui.initialisiere();
+    xmb.initialisiere();
+    flippy_os.initialisiere();
+    
+    // Neo-Cube-Powermode optional aktivieren
+    // powermode.aktiviere();
+    
+    // SD-Karte auf z.B. /dev/sdb oder \\.\PhysicalDrive2 mounten
+    sd_card.initialisiere("\\\\.\\PhysicalDrive2"); 
+    dvd.initialisiere(sd_card);
+    patcher.patche_ipl(mmu.ram_basis_zeiger);
+    ethernet.initialisiere();
+    
+    // NCL & CubeWave an das Ethernet-Addon binden
+    ncl.initialisiere(ethernet);
+    ncl.verbinde_zu_ncl_server();
+    
+    // Test NAS Streaming
+    // ethernet.lade_iso_von_nas("\\\\NAS\\GameCube\\MarioKart.iso");
+    
+    cpu.starte();
+    
+    sspl.konsole.schreibe("Phase 1 MVP Core erfolgreich hochgefahren.");
+}
+
+VRF_FLOW:BASELINE|CALL_GRAPH:AKTIV
+POLICY:least_privilege|MODUS:sicher
+HASH:d1ca0a27a3796983270c8d9e3546f3fd4a7fc722e575c905c5c023ec83a2c7e7|SIGNATUR:SSPL_v9.5_SONNERSTUDIO|d1ca0a27a3796983

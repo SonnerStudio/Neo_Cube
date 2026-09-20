@@ -1,0 +1,36 @@
+# SSPL Source Code & Architecture (Strictly Closed-Source)
+*.sspl
+*.cpp
+*.h
+*.hpp
+*.c
+NeoCubeOS-Core/
+docs/implementation_plan.md
+docs/walkthrough.md
+
+# Build Artifacts
+.sspl_cache/
+build/
+*.map
+
+# IDE and OS Files
+.vscode/
+.vs/
+.idea/
+.DS_Store
+Thumbs.db
+.gemini/
+
+# User Data & Temporaries
+games/
+boot_roms/
+*.iso
+*.ciso
+*.rvz
+storage/
+
+# Keep Only:
+# - *.ssplx (Compiled Binary Release)
+# - README*.md
+# - LICENSE*.md
+# - docs/*.jpg / docs/*.png (Assets for Readme)
