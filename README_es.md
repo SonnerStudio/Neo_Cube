@@ -1,18 +1,18 @@
-<div align="right">
-  <a href="README.md">🇬🇧 English</a> |
-  <a href="README_de.md">🇩🇪 Deutsch</a> |
-  <a href="README_es.md">🇪🇸 Español</a> |
-  <a href="README_ja.md">🇯🇵 日本語</a> |
-  <a href="README_zh.md">🇨🇳 中文</a> |
-  <a href="README_ru.md">🇷🇺 Русский</a> |
-  <a href="README_fr.md">🇫🇷 Français</a>
-</div>
-
 <p align="center">
   <img src="docs/neo_cube_logo.jpg" alt="Neo-Cube Logo" width="600">
 </p>
 
 # Neo-Cube
+<div align="center">
+  <a href="README.md">:uk: English</a> |
+  <a href="README_de.md">:de: Deutsch</a> |
+  <a href="README_es.md">:es: Español</a> |
+  <a href="README_ja.md">:jp: 日本語</a> |
+  <a href="README_zh.md">:cn: 中文</a> |
+  <a href="README_ru.md">:ru: Русский</a> |
+  <a href="README_fr.md">:fr: Français</a>
+</div>
+
 **La experiencia de emulación de GameCube de próxima generación.**
 
 Neo-Cube es un emulador de GameCube revolucionario, con precisión de ciclos, construido nativamente sobre el framework **SSPL v9.5**. A través de su Arquitectura Basada en Componentes (CBA), Neo-Cube ofrece un rendimiento absoluto, una interfaz de usuario premium y capacidades de red sin precedentes.

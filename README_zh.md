@@ -1,18 +1,18 @@
-<div align="right">
-  <a href="README.md">🇬🇧 English</a> |
-  <a href="README_de.md">🇩🇪 Deutsch</a> |
-  <a href="README_es.md">🇪🇸 Español</a> |
-  <a href="README_ja.md">🇯🇵 日本語</a> |
-  <a href="README_zh.md">🇨🇳 中文</a> |
-  <a href="README_ru.md">🇷🇺 Русский</a> |
-  <a href="README_fr.md">🇫🇷 Français</a>
-</div>
-
 <p align="center">
   <img src="docs/neo_cube_logo.jpg" alt="Neo-Cube Logo" width="600">
 </p>
 
 # Neo-Cube
+<div align="center">
+  <a href="README.md">:uk: English</a> |
+  <a href="README_de.md">:de: Deutsch</a> |
+  <a href="README_es.md">:es: Español</a> |
+  <a href="README_ja.md">:jp: 日本語</a> |
+  <a href="README_zh.md">:cn: 中文</a> |
+  <a href="README_ru.md">:ru: Русский</a> |
+  <a href="README_fr.md">:fr: Français</a>
+</div>
+
 **下一代 GameCube 仿真体验。**
 
 Neo-Cube 是一款革命性的、周期精确的 GameCube 模拟器，原生构建在 **SSPL v9.5** 框架之上。通过其基于组件的混合架构（CBA），Neo-Cube 提供了绝对的性能、优质的用户界面和前所未有的网络功能。
