@@ -3,6 +3,7 @@
 Retro-Gaming-Fans und Code-Enthusiasten, haltet euch fest: Wir bei SonnerStudio haben die GameCube-Emulation revolutioniert! Unser brandneues Projekt **Neo-Cube** vereint Zyklusgenauigkeit mit Next-Gen-Technologie. 
 
 **Was macht Neo-Cube so besonders?**
+⚡ **Neo-Cube Power-Mode:** Wir entfesseln die Hardware! Erlebe erweiterte RAM-Kapazitäten und eine massiv optimierte Dolphin-CPU für atemberaubende Bildraten.
 🕹️ **Neo-Cube Live (NCL):** Vergiss lokale LAN-Partys! Neo-Cube tunnelt das originale GameCube-LAN über das Internet. Schnapp dir deine Freunde und spiele *Mario Kart: Double Dash!!* ab sofort weltweit online!
 🎙️ **CubeWave Voice & Party:** Erstelle In-App-Lobbys und unterhalte dich plattformübergreifend via Headset direkt über den Emulator.
 💾 **SD-Karten Passthrough:** Wir lesen originale GameCube Homebrew und ISOs über "Raw Block I/O" direkt von deiner physischen SD-Karte.
@@ -26,6 +27,7 @@ Wir freuen uns auf euer Feedback! 🔥
 Retro gaming fans and coding enthusiasts, hold on tight: We at SonnerStudio have revolutionized GameCube emulation! Our brand new project **Neo-Cube** combines cycle accuracy with next-gen technology.
 
 **What makes Neo-Cube so special?**
+⚡ **Neo-Cube Power-Mode:** We unleash the hardware! Experience expanded RAM capacities and a massively optimized Dolphin CPU for breathtaking frame rates.
 🕹️ **Neo-Cube Live (NCL):** Forget local LAN parties! Neo-Cube tunnels the original GameCube LAN over the internet. Grab your friends and play *Mario Kart: Double Dash!!* online globally starting today!
 🎙️ **CubeWave Voice & Party:** Create in-app lobbies and chat cross-platform via headset right through the emulator.
 💾 **SD-Card Passthrough:** We read original GameCube homebrew and ISOs via "Raw Block I/O" straight from your physical SD card.
