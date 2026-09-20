@@ -12,6 +12,7 @@ Neo-Cube est un émulateur GameCube révolutionnaire, précis au cycle près, co
 
 ## 🌟 Fonctionnalités principales
 - **CBA :** Cœur modulaire avec exécution synchrone du CPU, du GPU et du DSP.
+- **Mode Neo-Cube Power-Mode :** Libérez des performances maximales ! Ce mode fournit une mémoire vive étendue et un cœur de CPU Dolphin ultra-optimisé pour la plus haute fidélité et fluidité possible.
 - **Neo-Cube Live (NCL) :** Multijoueur en ligne via un tunnel LAN.
 - **CubeWave VoIP :** Chat vocal intégré au système d'exploitation pour créer des groupes.
 - **Mode Flippy-OS Deluxe :** Démarrez directement sur le firmware d'origine CubeBoot.

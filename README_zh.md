@@ -12,6 +12,7 @@ Neo-Cube 是一款革命性的、周期精确的 GameCube 模拟器，原生构�
 
 ## 🌟 核心功能
 - **CBA:** 具有 CPU、GPU 和 DSP 同步执行的模块化核心。
+- **Neo-Cube 性能模式 (Power-Mode):** 释放最高性能！此模式提供扩展内存和经过高度优化的 Dolphin CPU 核心，以实现最高保真度和帧率。
 - **Neo-Cube Live (NCL):** 通过 LAN 隧道实现在线多人游戏。
 - **CubeWave VoIP:** 操作系统集成的语音聊天，用于创建派对。
 - **Flippy-OS 豪华模式:** 直接启动到原始的 CubeBoot 固件。

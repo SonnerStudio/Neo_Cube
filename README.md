@@ -13,6 +13,7 @@ Neo-Cube is a revolutionary, cycle-accurate GameCube emulator built natively on 
 ## 🌟 Core Features
 
 - **Component-Based Architecture (CBA):** The emulator core is completely modular. GekkoCPU, FlipperGPU, MacaronDSP, and the Event-Bus operate in extreme synchronicity.
+- **Neo-Cube Power-Mode:** Unleash maximum performance! This mode provides expanded RAM and an ultra-optimized Dolphin CPU core for the highest fidelity and frame rates possible.
 - **Neo-Cube Live (NCL):** Say goodbye to local-only multiplayer. NCL tunnels your virtual GameCube's LAN traffic over the internet (UDP Hole Punching).
 - **CubeWave Voice & Party System:** Create lobbies and chat with friends using the built-in VoIP functionality while playing.
 - **Physical SD-Card Passthrough:** Reads original GameCube homebrew and ISOs directly from your PC's physical SD-card reader via Raw Block I/O.
