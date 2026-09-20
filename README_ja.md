@@ -4,13 +4,13 @@
 
 # Neo-Cube
 <div align="center">
-  <a href="README.md">:uk: English</a> |
-  <a href="README_de.md">:de: Deutsch</a> |
-  <a href="README_es.md">:es: Español</a> |
-  <a href="README_ja.md">:jp: 日本語</a> |
-  <a href="README_zh.md">:cn: 中文</a> |
-  <a href="README_ru.md">:ru: Русский</a> |
-  <a href="README_fr.md">:fr: Français</a>
+  <a href="README.md"><img src="docs/flags/gb.png" width="16" alt="EN"> English</a> |
+  <a href="README_de.md"><img src="docs/flags/de.png" width="16" alt="DE"> Deutsch</a> |
+  <a href="README_es.md"><img src="docs/flags/es.png" width="16" alt="ES"> Español</a> |
+  <a href="README_ja.md"><img src="docs/flags/jp.png" width="16" alt="JA"> 日本語</a> |
+  <a href="README_zh.md"><img src="docs/flags/cn.png" width="16" alt="ZH"> 中文</a> |
+  <a href="README_ru.md"><img src="docs/flags/ru.png" width="16" alt="RU"> Русский</a> |
+  <a href="README_fr.md"><img src="docs/flags/fr.png" width="16" alt="FR"> Français</a>
 </div>
 
 **次世代のゲームキューブエミュレーション体験。**
