@@ -39,24 +39,11 @@ Neo-Cube ist ein revolutionärer, zyklusgenauer GameCube-Emulator, der nativ auf
 
 
 ## 🚀 Ausblick: SuperCube-Mode 64
-Wir entwickeln derzeit die ultimative Evolution: **SuperCube-Mode 64**. Dieser Next-Gen 64-Bit-Emulations-Layer umfasst ein komplettes virtuelles Hardware-Redesign (Neo-Gekko-64 CPU, Neo-Flipper-64 GPU, Neo-Macaron-64 Audio). Mache dich bereit für 8K-Auflösungen, Asset-Injection, Spatial Audio (inkl. audiophilem 432 Hz Tuning) und Zero-Load-Times via NVMe PCIe 4.0 Emulation. *Weitere Details folgen in Kürze...*
-## 🚀 Installation & Setup
+Wir entwickeln derzeit die ultimative Evolution: den **SuperCube-Mode 64**. Dieser Next-Gen 64-Bit-Emulations-Layer umfasst ein komplettes virtuelles Hardware-Redesign (Neo-Gekko-64 CPU, Neo-Flipper-64 GPU, Neo-Macaron-64 Audio).
 
-1. **Repository klonen:**
-   ```bash
-   git clone https://github.com/SonnerStudio/Neo_Cube.git
-   ```
-2. **Mit SSPL kompilieren:**
-   ```bash
-   sspl schmiede neo_cube.sspl
-   ```
-3. **Emulator starten:**
-   ```bash
-   sspl run neo_cube.sspl.ssplx
-   ```
+Klassische GameCube-Spiele werden durch heuristisches Hashing und "On-The-Fly" Asset-Injection simultan transformiert: Statische Rasterization wird durch dynamisches Raytracing (Global Illumination & PBR-Materialien) ersetzt. Das System skaliert intern von 1080p bis hin zu ultra-scharfen 8K-Auflösungen, gestützt durch KI-Upscaling (DLSS/MetalFX).
 
-## 🎮 Flippy-OS Deluxe Mode
-Starte den Emulator mit dem Parameter `--deluxe`, um direkt in die originale **CubeBoot** Firmware zu booten. Der Emulator spiegelt hierbei exakt die Boot-Sequenz des Raspberry Pi Picos (sowie FW 2.0 via `flippy_os.sspl`) wider!
+Gleichzeitig eröffnet das neue SuperCube SDK völlig neue Dimensionen für die Homebrew-Community: Entwickelt Next-Gen-Titel mit unlimitiertem Speicher und Compute-Shadern, während ihr dem nostalgischen und allseits beliebten GameCube-Stil treu bleibt! Mache dich bereit für Spatial Audio (inkl. audiophilem 432 Hz Tuning) und Zero-Load-Times via NVMe PCIe 4.0 Emulation. *Weitere Details folgen in Kürze...*
 
 ---
 *Mit Leidenschaft entwickelt von SonnerStudio. Verfügbar für Windows 11 & macOS (M-Serie).*

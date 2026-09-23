@@ -39,24 +39,11 @@ Neo-Cube is a revolutionary, cycle-accurate GameCube emulator built natively on 
 
 
 ## 🚀 Upcoming: SuperCube-Mode 64
-We are currently developing the ultimate evolution: **SuperCube-Mode 64**. This next-gen 64-bit emulation layer will feature a complete virtual hardware redesign (Neo-Gekko-64 CPU, Neo-Flipper-64 GPU, Neo-Macaron-64 Audio). Prepare for 8K resolution capabilities, Asset-Injection, Spatial Audio (including Audiophile 432 Hz tuning), and Zero-Load-Times via NVMe PCIe 4.0 emulation. *More details coming soon...*
-## 🚀 Installation & Setup
+We are currently developing the ultimate evolution: **SuperCube-Mode 64**. This next-gen 64-bit emulation layer features a complete virtual hardware redesign (Neo-Gekko-64 CPU, Neo-Flipper-64 GPU, Neo-Macaron-64 Audio).
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/SonnerStudio/Neo_Cube.git
-   ```
-2. **Build with SSPL:**
-   ```bash
-   sspl schmiede neo_cube.sspl
-   ```
-3. **Run the Emulator:**
-   ```bash
-   sspl run neo_cube.sspl.ssplx
-   ```
+Classic GameCube games are simultaneously transformed via heuristic hashing and on-the-fly asset injection: replacing static rasterization with dynamic raytracing (Global Illumination & PBR materials). The system internally scales from 1080p all the way up to ultra-sharp 8K resolutions, powered by AI upscaling (DLSS/MetalFX).
 
-## 🎮 Flippy-OS Deluxe Mode
-Launch the emulator with the `--deluxe` flag to boot directly into the original **CubeBoot** firmware (emulating the Raspberry Pi Pico boot sequence and FW 2.0 via `flippy_os.sspl`), giving you the ultimate authentic hardware experience!
+At the same time, the new SuperCube SDK opens up entirely new dimensions for the homebrew community: develop next-gen titles with unlimited memory and compute shaders, all while staying true to the nostalgic and widely beloved GameCube style! Prepare for Spatial Audio (including audiophile 432 Hz tuning) and zero-load-times via NVMe PCIe 4.0 emulation. *More details coming soon...*
 
 ---
 *Built with passion by SonnerStudio. Available for Windows 11 & macOS (M-Series).*
