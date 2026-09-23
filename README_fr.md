@@ -22,11 +22,19 @@ Neo-Cube est un émulateur GameCube révolutionnaire, précis au cycle près, co
 
 ## 🌟 Fonctionnalités principales
 - **CBA :** Cœur modulaire avec exécution synchrone du CPU, du GPU et du DSP.
-- **Mode Neo-Cube Power-Mode :** Libérez des performances maximales ! Ce mode fournit une mémoire vive étendue et un cœur de CPU Dolphin ultra-optimisé pour la plus haute fidélité et fluidité possible.
+- **Neo-Cube Power-Mode :** Libérez les performances maximales ! Ce mode fournit une RAM étendue et un cœur de processeur Dolphin ultra-optimisé pour la fidélité et les fréquences d'images les plus élevées possibles.
+  
+  <img src="docs/powermode_config.jpg" alt="Power-Mode Config" width="800">
+
+- **Backend Vulkan SSGE :** Intégration native avec le nouveau SonnerStudioGraficEngine (`vulkan_backend.sspl`) pour un rendu impeccable.
+- **Module complémentaire Ethernet FlippyDrive :** Émulation LAN/NAS virtuelle (`ethernet_addon.sspl`) pour un chargement transparent des jeux ISO.
+- **Interface DVD native :** Nouvel analyseur précis pour les systèmes de fichiers ISO (`dvd_interface.sspl`).
 - **Neo-Cube Live (NCL) :** Multijoueur en ligne via un tunnel LAN.
 - **CubeWave VoIP :** Chat vocal intégré au système d'exploitation pour créer des groupes.
 - **Mode Flippy-OS Deluxe :** Démarrez directement sur le firmware d'origine CubeBoot.
-- **Tableau de bord "Neo-XMB" :** Interface utilisateur 4K Dark-Mode de niveau console.
+- **Tableau de bord Premium "Neo-XMB" :** Une interface utilisateur époustouflante en mode sombre Glassmorphism 4K fonctionnant à 60 FPS fluides. Construit pour un maximum d'exclusivité.
+  
+  <img src="docs/system_settings.jpg" alt="System Settings" width="800">
 
 ---
 *Développé avec passion par SonnerStudio. Tous droits réservés.*

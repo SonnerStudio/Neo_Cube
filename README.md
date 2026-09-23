@@ -24,10 +24,18 @@ Neo-Cube is a revolutionary, cycle-accurate GameCube emulator built natively on 
 
 - **Component-Based Architecture (CBA):** The emulator core is completely modular. GekkoCPU, FlipperGPU, MacaronDSP, and the Event-Bus operate in extreme synchronicity.
 - **Neo-Cube Power-Mode:** Unleash maximum performance! This mode provides expanded RAM and an ultra-optimized Dolphin CPU core for the highest fidelity and frame rates possible.
+  
+  <img src="docs/powermode_config.jpg" alt="Power-Mode Config" width="800">
+
+- **SSGE Vulkan Backend:** Native integration with the new SonnerStudioGraficEngine (`vulkan_backend.sspl`) for flawless rendering.
+- **FlippyDrive Ethernet Addon:** Virtual LAN/NAS emulation (`ethernet_addon.sspl`) for seamless direct ISO game loading.
+- **Native DVD Interface:** New cycle-accurate parser for ISO filesystems (`dvd_interface.sspl`).
 - **Neo-Cube Live (NCL):** Say goodbye to local-only multiplayer. NCL tunnels your virtual GameCube's LAN traffic over the internet (UDP Hole Punching).
 - **CubeWave Voice & Party System:** Create lobbies and chat with friends using the built-in VoIP functionality while playing.
 - **Physical SD-Card Passthrough:** Reads original GameCube homebrew and ISOs directly from your PC's physical SD-card reader via Raw Block I/O.
 - **Premium "Neo-XMB" Dashboard:** A breathtaking, 4K Glassmorphism Dark-Mode user interface running at a fluid 60FPS. Built for maximum exclusivity.
+  
+  <img src="docs/system_settings.jpg" alt="System Settings" width="800">
 
 ## 🚀 Installation & Setup
 
@@ -45,7 +53,7 @@ Neo-Cube is a revolutionary, cycle-accurate GameCube emulator built natively on 
    ```
 
 ## 🎮 Flippy-OS Deluxe Mode
-Launch the emulator with the `--deluxe` flag to boot directly into the original **CubeBoot** firmware (emulating the Raspberry Pi Pico boot sequence), giving you the ultimate authentic hardware experience!
+Launch the emulator with the `--deluxe` flag to boot directly into the original **CubeBoot** firmware (emulating the Raspberry Pi Pico boot sequence and FW 2.0 via `flippy_os.sspl`), giving you the ultimate authentic hardware experience!
 
 ---
 *Built with passion by SonnerStudio. Available for Windows 11 & macOS (M-Series).*

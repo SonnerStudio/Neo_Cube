@@ -24,10 +24,18 @@ Neo-Cube ist ein revolutionärer, zyklusgenauer GameCube-Emulator, der nativ auf
 
 - **Component-Based Architecture (CBA):** Der Emulator-Kern ist komplett modular. GekkoCPU, FlipperGPU, MacaronDSP und der Event-Bus operieren absolut synchron.
 - **Neo-Cube Power-Mode:** Entfessle maximale Leistung! Dieser Modus bietet erweiterten Arbeitsspeicher und einen stark optimierten Dolphin-CPU-Kern für die bestmögliche Darstellung und höchste Framerates.
+  
+  <img src="docs/powermode_config.jpg" alt="Power-Mode Config" width="800">
+
+- **SSGE Vulkan Backend:** Native Integration mit der neuen SonnerStudioGraficEngine (`vulkan_backend.sspl`) für makelloses Rendering.
+- **FlippyDrive Ethernet Addon:** Virtuelle LAN/NAS Emulation (`ethernet_addon.sspl`) für nahtloses Laden von ISOs.
+- **Natives DVD Interface:** Neuer zyklusgenauer Parser für ISO-Dateisysteme (`dvd_interface.sspl`).
 - **Neo-Cube Live (NCL):** Das virtuelle GameCube-LAN wird über das Internet getunnelt (UDP Hole Punching), um Online-Multiplayer zu ermöglichen.
 - **CubeWave Voice & Party System:** Erstelle Lobbys und unterhalte dich mit deinen Freunden über das integrierte VoIP-System, während du spielst.
 - **Physischer SD-Karten Passthrough:** Lese originale GameCube Homebrew und ISOs direkt von deinem physischen SD-Kartenleser (Raw Block I/O).
 - **Premium "Neo-XMB" Dashboard:** Eine atemberaubende 4K Glassmorphism Dark-Mode Benutzeroberfläche, die mit 60FPS läuft. Entwickelt für absolute Exklusivität (PlayStation/Xbox Niveau).
+  
+  <img src="docs/system_settings.jpg" alt="System Settings" width="800">
 
 ## 🚀 Installation & Setup
 
@@ -45,7 +53,7 @@ Neo-Cube ist ein revolutionärer, zyklusgenauer GameCube-Emulator, der nativ auf
    ```
 
 ## 🎮 Flippy-OS Deluxe Mode
-Starte den Emulator mit dem Parameter `--deluxe`, um direkt in die originale **CubeBoot** Firmware zu booten. Der Emulator spiegelt hierbei exakt die Boot-Sequenz des Raspberry Pi Picos wider!
+Starte den Emulator mit dem Parameter `--deluxe`, um direkt in die originale **CubeBoot** Firmware zu booten. Der Emulator spiegelt hierbei exakt die Boot-Sequenz des Raspberry Pi Picos (sowie FW 2.0 via `flippy_os.sspl`) wider!
 
 ---
 *Mit Leidenschaft entwickelt von SonnerStudio. Verfügbar für Windows 11 & macOS (M-Serie).*

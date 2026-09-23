@@ -22,11 +22,19 @@ Neo-Cubeは、**SSPL v9.5**フレームワーク上でネイティブに構築�
 
 ## 🌟 主な機能
 - **CBA:** CPU、GPU、DSPの同期実行を備えたモジュラーコア。
-- **Neo-Cube パワーモード:** 最大限のパフォーマンスを引き出します！このモードは、拡張されたRAMと高度に最適化されたDolphin CPUコアを提供し、最高品質の描画とフレームレートを実現します。
+- **Neo-Cube パワーモード:** 最大限のパフォーマンスを解き放ちます。このモードは、拡張されたRAMと超最適化されたDolphin CPUコアを提供し、可能な限り最高の忠実度とフレームレートを実現します。
+  
+  <img src="docs/powermode_config.jpg" alt="Power-Mode Config" width="800">
+
+- **SSGE Vulkan バックエンド:** 完璧なレンダリングのための新しい SonnerStudioGraficEngine (`vulkan_backend.sspl`) とのネイティブ統合。
+- **FlippyDrive イーサネット アドオン:** シームレスな ISO ゲーム ロードのための仮想 LAN/NAS エミュレーション (`ethernet_addon.sspl`)。
+- **ネイティブ DVD インターフェイス:** ISO ファイルシステム用の新しいサイクル アキュレート パーサー (`dvd_interface.sspl`)。
 - **Neo-Cube Live (NCL):** LANトンネリングによるオンラインマルチプレイ。
 - **CubeWave VoIP:** パーティーを作成するためのOS統合ボイスチャット。
 - **Flippy-OSデラックスモード:** オリジナルのCubeBootファームウェアに直接起動。
-- **「Neo-XMB」ダッシュボード:** コンソールレベルの4KダークモードUI。
+- **プレミアム "Neo-XMB" ダッシュボード:** 息を呑むような 4K グラスモーフィズムのダークモード ユーザー インターフェイスで、60 FPS でスムーズに動作します。最高の独占性のために構築されています。
+  
+  <img src="docs/system_settings.jpg" alt="System Settings" width="800">
 
 ---
 *SonnerStudioによって開発されました。全著作権所有。*
