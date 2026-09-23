@@ -36,5 +36,9 @@ Neo-Cubeは、**SSPL v9.5**フレームワーク上でネイティブに構築�
   
   <img src="docs/system_settings.jpg" alt="System Settings" width="800">
 
+
+## 🚀 開発中: SuperCube-Mode 64
+私たちは現在、究極の進化である **SuperCube-Mode 64** を開発しています。この次世代 64 ビット エミュレーション レイヤーは、完全な仮想ハードウェアの再設計 (Neo-Gekko-64 CPU、Neo-Flipper-64 GPU、Neo-Macaron-64 Audio) を特徴とします。8K 解像度機能、アセット インジェクション、空間オーディオ (オーディオファンの 432 Hz チューニングを含む)、および NVMe PCIe 4.0 エミュレーションによるロード時間ゼロに備えてください。*詳細は近日公開...*
+
 ---
 *SonnerStudioによって開発されました。全著作権所有。*

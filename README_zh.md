@@ -36,5 +36,9 @@ Neo-Cube 是一款革命性的、周期精确的 GameCube 模拟器，原生构�
   
   <img src="docs/system_settings.jpg" alt="System Settings" width="800">
 
+
+## 🚀 即将推出：SuperCube-Mode 64
+我们目前正在开发终极进化版：**SuperCube-Mode 64**。这款下一代 64 位仿真层将采用完整的虚拟硬件重新设计（Neo-Gekko-64 CPU、Neo-Flipper-64 GPU、Neo-Macaron-64 Audio）。准备好迎接 8K 分辨率功能、资产注入、空间音频（包括发烧友 432 Hz 调音）以及通过 NVMe PCIe 4.0 仿真实现的零加载时间。*更多详细信息即将推出...*
+
 ---
 *由 SonnerStudio 充满热情地开发。保留所有权利。*

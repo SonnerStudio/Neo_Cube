@@ -166,14 +166,109 @@ SSPL_MODULE_PATH="F:/Build SSPL Produktion;C:/Dev/Repos/SonnerStudio/Gamecube Em
   sspl-run neocube_os_agents_test.sspl
 ```
 
-## Ausstehend (Etappe 3+)
+## Etappe 3 — GUI, Audio, Vertiefung Storage/SSL (gruen)
 
-- `gui/` restliche Module: `gx_renderer`, `coverflow`, `effects`,
-  `font`, `icon_mesh`, `icon_system`, `lang` — brauchen das
-  GX/VI-Subsystem des Emulators (aktuell Ereignis-Stubs)
-- `audio/real_audio.c`, `audio/wav_loader.c` — DSP/ARAM-Backend
-- `fat32`-Schreibpfad + Cluster-Chain-Follow (iso_layer-Fragmente)
-- `ssl_vm` Opcode-Dispatch (aktuell Dummy-Loop wie C)
-- `sdcard` Schreibpfad (CMD24), Multi-Block
+### GUI — Draw-List-Modell
+
+GX ist auf dem Host noch nicht angebunden. Alle `GX_*`-Aufrufe
+werden als Primitive in `gx_renderer.prims` protokolliert —
+`{"art": GX_QUADS|GX_TRIANGLEFAN|GX_LINES|"glyphe",
+"verts": [[x,y,r,g,b,a], ...]}` — deterministisch testbar; ein
+spaeteres GX-Backend konsumiert dieselbe Liste.
+
+| C-Quelle | SSPL | Inhalt |
+|---|---|---|
+| `gx_renderer.c` | `gx_renderer.sspl` | Draw-List, `Rq/Gv/Gh/Ci` → `rq/gv/gh/ci`, `vset`-Zaehler, `gui_draw_*`, `iso_proj` (liefert `[sx,sy]` statt Out-Params), `iso_face`, `zeichne_iso_wuerfel` (6 Faces × FLIT — in C nur extern deklariert, hier vollstaendig), `gui_init` (modelliert), kompletter GUI-State (frame, nav_*, explorer_*) |
+| `effects.c` | `effects.sspl` | 3 Parallax-Ebenen (0.5/1.5/4.0, Wrap bei 640), `zeichne_parallax_hintergrund` (6 Quads), `zeichne_scanlines` (240 Linien-Verts) |
+| `font.c` | `font.sspl` | 82-Glyph-Tabelle maschinell aus den C-case-Bloecken, `glyph`/`pixel_zaehle`, `zeichne_zeichen` (Glyphe-Prim), `zeichne_text` mit UTF-8-Dekodierung + Unicode→0x80-0xAB-Mapping (Kyrillisch/Umlaute), `breite` (Lead-Byte-Zaehlung), `hoehe` |
+| `icon_mesh.c` | `icon_mesh.sspl` | `zeichne(name,x,y,scale,rot,r,g,b)`-Dispatch statt Fn-Zeigern; 8 Meshes |
+| `icon_system.c` | `icon_system.sspl` | `NeoIcon` instanziierbar: `init_icon`, `update` (CW/CCW/SELECTABLE, ±360-Wrap), `zeichne` — C ignorierte Position/Rotation (Designluecke); Port reicht sie ans Mesh durch (dokumentierte Abweichung) |
+| `coverflow.c` | `coverflow.sspl` | `rendere()` liest `launcher.*`: diff/scale/alpha/x_pos/w/h-Mathe 1:1, Cover-Quad + Reflexions-Quad, Titel zentriert |
+| `lang.c` | `lang.sspl` | 5 Sprachen × 86 Strings + Agent-Namen, generiert aus lang.c/h. STR-IDs als String-Schluessel, EN-Fallback statt NULL, `setze` clamped auf LANG_MAX |
+| `gui_agent.c` | `gui_agent.sspl` | `gui_subsystem_init` ruft `gx_renderer.gui_init` + `effects.initialisiere`; `rendere_desktop` = kompletter Frame: frame_tick → loesche_prims → effects.update/parallax → coverflow → scanlines → GUI_RENDER-Ereignis (in C nur deklariert — Modellierung) |
+
+### Audio
+
+| C-Quelle | SSPL | Inhalt |
+|---|---|---|
+| `real_audio.c` | `real_audio.sspl` | AI/DSP-Register (0xCC006C00/0xCC005000) ueber `speicher.*` — die in C auskommentierten DMA-Registerzugriffe sind real implementiert; DMA-Callback → `AI_DMA_FERTIG`-Ereignis |
+| `wav_loader.c` | `wav_loader.sspl` | C war Stub; hier echter RIFF/WAVE/fmt/data-Parser (LE) + `lade_samples` (i16); `ok`-Feld als Fehlerkanal |
+| `audio_agent.c` | `audio_agent.sspl` | ruft jetzt `real_audio.initialisiere` + `setze_dsp_samplerate(48k)` |
+
+### Vertiefung Storage/SSL
+
+- **`ssl_vm.sspl`**: echter Opcode-Dispatch statt Dummy-`pc++`.
+  ISA (C-Kommentar erweitert, dokumentiert): `00 HALT`,
+  `01 PUSH i32LE`, `02-06 ADD/SUB/MUL/DIV/MOD`, `07 NEG`,
+  `08 DUP`, `09 DROP`, `0A SWAP`, `0B JMP u16`, `0C JZ`,
+  `0D JNZ`, `0E EQ`, `0F LT`, `10 DRAW_RECT` → SSL_DRAW-Ereignis.
+  Stack `int32[256]`, Fehlercodes (1=Schrittlimit, 2=Ueberlauf,
+  3=Unterlauf, 4=Div0, 5=unbekannter Op).
+- **`sdcard.sspl`**: `binde_virtuelle_disk(basis, sektoren)` —
+  Guest-RAM-Puffer als Sektor-Array; `init`/`lese_sektor`/
+  `schreibe_sektor`/`schreibe_sektoren` laufen darueber ohne
+  SPI. CMD24-Schreibpfad (Token 0xFE, Data-Response 0x05,
+  Busy-Wait) fuer echte Karten.
+- **`fat32.sspl`**: LE-Helfer (`u16le/u32le/schreibe_u16le/
+  u32le`) — FAT32 ist little-endian, Guest-RAM big-endian;
+  `fat_eintrag`/`setze_fat_eintrag`, `ist_eoc`, `cluster_liste`
+  (Chain-Walk, 64k-Guard), `lese_cluster`/`schreibe_cluster`,
+  `suche_eintrag` (ueber die ganze Root-Chain), `lese_datei`,
+  `allokiere_cluster` (freie FAT-Eintraege), `zu_83`,
+  `schreibe_datei` (Kette + Dir-Eintrag). `liste_verzeichnis`/
+  `scanne_root_isos` wandern jetzt die komplette Cluster-Kette.
+- **`iso_layer.sspl`**: `mount` loest die FAT-Cluster-Kette der
+  ISO auf und baut die Fragment-Map (angrenzende LBAs werden
+  verschmolzen); `lese` fuehrt fragmentuebergreifende,
+  Byte-genau adressierte Sektor-Reads mit Scratch-Puffer aus.
+
+### Interpreter-Ergaenzungen
+
+- Neue Natives: `sinus`, `kosinus`, `tangens`, `betrag`
+  (Float/Int) — fuer iso_proj/Ci/coverflow.
+
+### Neue SSPL-Fallen (Etappe 3)
+
+- `datei.oeffne(pfad).lese_bytes(off, len)` — ohne `len` liefert
+  die Funktion 0 Bytes (Default 0), nicht "alles".
+- `speicher.lese_u16/u32` ist **big-endian** (Gekko) — FAT32 ist
+  little-endian → explizite LE-Helfer noetig (auch `schreibe_u16`).
+- Map-Eintraege in Listen sind Kopien: Mutation an lokaler Kopie,
+  dann zurueckschreiben (`frags[i] = letztes`).
+
+### Verifikation — `neocube_os_stage3_test.sspl` (`=> 0`)
+
+- gx: rect/fan/iso_proj/iso_wuerfel (6 Faces, FLIT-Helligkeit)
+- font: Glyph-Bitmap 'A' (16 Pixel), Breite/UTF-8 'Ä'→0xA0,
+  Glyphe-Prim
+- effects: Scroll-Geschwindigkeiten, Wrap 640, 6 Parallax-Quads,
+  240 Scanline-Verts
+- icons: CW/CCW/SELECTABLE-Wrap, Mesh-Farben
+- coverflow: Quads, Alpha 255 (gewaehlt) / 204 (dist=1), Titel
+- lang: EN/DE/RU-Strings, Agent-Namen, LANG_MAX-Clamp
+- audio: AI-Register-Bitmuster (DMA-Enable/Start/Vol/Rate),
+  AI_DMA_FERTIG-Ereignis
+- wav: RIFF-Parse (44100/16-bit/Stereo), Sample-Extraktion,
+  Fehlerpfad
+- ssl_vm: Arithmetik/Stack/Branch-Programm (Ergebnis 12),
+  DRAW_RECT-Ereignis, Div0-Fehler, unbekannter Op
+- fat32: vdisk-Image mit MBR+BPB, `init` mountet, Root-Dir-
+  Chain, `lese_datei`, `schreibe_datei` (2-Cluster-Roundtrip,
+  Dir-Eintrag), Duplikat-Reject
+- iso: Fragment-Map (2 nicht-zusammenhaengende Cluster → 2
+  Fragmente), 700-Byte-Read ueber Fragmentgrenze, unalignierter
+  Read ueber Sektor- + Fragment-Grenze
+- gui_agent.rendere_desktop: kompletter Frame (Parallax +
+  Cover + Titel + Scanlines) in der Draw-List
+
+Alle Regressionen (Etappe 1+2, Gekko, SERIL, Smoke, SI) gruen.
+
+## Ausstehend (Etappe 4+)
+
+- GX-Backend: Draw-List → echte GX-Kommando-FIFO des Emulators
+- DSP-Backend: AI-Register → DSP-Modell + Audio-Ausgabe
 - Echte Disc-Pfade: DI-Register-Backend fuer `DVD_READ_ABS`
-- `datei.liste`-Ersatz fuer gemountete FAT-Volumes (virtuelle Pfade)
+- `datei.liste`-Ersatz fuer gemountete FAT-Volumes (virtuelle
+  Pfade — Launcher/Scanner lesen direkt vom Image)
+- CMD25-Multiblock fuer sdcard (aktuell CMD24-Sequenz)
+- Unterverzeichnisse/LFN in fat32 (aktuell Root + 8.3)

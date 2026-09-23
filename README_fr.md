@@ -36,5 +36,9 @@ Neo-Cube est un émulateur GameCube révolutionnaire, précis au cycle près, co
   
   <img src="docs/system_settings.jpg" alt="System Settings" width="800">
 
+
+## 🚀 À venir : SuperCube-Mode 64
+Nous développons actuellement l'évolution ultime : **SuperCube-Mode 64**. Cette couche d'émulation 64 bits de nouvelle génération comprendra une refonte complète du matériel virtuel (CPU Neo-Gekko-64, GPU Neo-Flipper-64, Audio Neo-Macaron-64). Préparez-vous à des capacités de résolution 8K, à l'injection d'actifs, à l'audio spatial (y compris le réglage audiophile 432 Hz) et à des temps de chargement nuls via l'émulation NVMe PCIe 4.0. *Plus de détails bientôt...*
+
 ---
 *Développé avec passion par SonnerStudio. Tous droits réservés.*
